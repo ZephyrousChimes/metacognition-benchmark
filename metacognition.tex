@@ -1,0 +1,393 @@
+\documentclass{article}
+
+% Evaluations & Datasets track — most appropriate for a benchmark paper
+% Switch to \usepackage[eandd, final]{neurips_2026} upon acceptance
+\usepackage[eandd]{neurips_2026}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{nicefrac}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+% ---------------------------------------------------------------
+% TODO: Replace with your actual title
+\title{Probing the Failure Boundary of Metacognitive Calibration in Large Language Models}
+
+\author{%
+  % TODO: Fill in when de-anonymizing
+  % Your Name \\
+  % IIIT Bangalore \\
+  % \texttt{your@email.com}
+}
+% ---------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+% ---------------------------------------------------------------
+\begin{abstract}
+	% TARGET: ~150 words. Write this LAST.
+	%
+	% Structure:
+	%   [Gap]      Current benchmarks measure average calibration but do not
+	%              systematically probe where and why calibration breaks.
+	%   [Approach] We introduce [NAME], a benchmark that stress-tests metacognitive
+	%              ability at the failure boundary — tasks engineered to sit at the
+	%              edge where model confidence diverges from epistemic warrant.
+	%   [Design]   Tasks span three regimes: complete information, withheld
+	%              information, and deliberately misleading information.
+	%   [Finding]  Experiments across N frontier models reveal that [key finding].
+	%   [Claim]    Our benchmark exposes failure modes invisible to existing evals.
+
+	\textbf{TODO: Write abstract last.}
+\end{abstract}
+
+
+% ---------------------------------------------------------------
+\section{Introduction}
+% TARGET: ~400 words. Write this SECOND (after Section 3).
+%
+% Paragraph 1 — The big picture problem
+%   Why does metacognition matter for AI systems?
+%   What goes wrong when a model is miscalibrated?
+%   (overconfident hallucination, silent failure on hard tasks)
+%
+% Paragraph 2 — What current benchmarks do
+%   Name 2-3 existing benchmarks (e.g. Kadavath 2022, Xiong 2024,
+%   AAAI 2025 decoupling framework). What they measure. Where they stop.
+%
+% Paragraph 3 — The specific gap
+%   Average calibration \neq calibration at the boundary.
+%   Models can look well-calibrated on aggregate while being systematically
+%   wrong in the regime that matters most: ambiguous, OOD, misleading inputs.
+%
+% Paragraph 4 — Our contribution (bullet list or prose)
+%   - We introduce [BENCHMARK NAME]
+%   - Three task regimes (defined in Section 3)
+%   - Novel elicitation protocol (Section 3.3)
+%   - Regime-stratified ECE scoring (Section 4)
+%   - Released as Kaggle Community Benchmark
+%
+% Paragraph 5 — Paper roadmap (1-2 sentences)
+
+\textbf{TODO: Write introduction after Section~\ref{sec:design} is solid.}
+
+
+% ---------------------------------------------------------------
+\section{Background and Related Work}
+% TARGET: ~300 words
+
+\subsection{Calibration in Machine Learning}
+% Guo et al. 2017 — ECE definition, temperature scaling
+% Brier score as a proper scoring rule
+% One tight paragraph.
+
+\textbf{TODO: }
+
+\subsection{Metacognition in Large Language Models}
+% What has been measured so far:
+%   Kadavath et al. 2022 — "Know What You Don't Know"
+%   Xiong et al. 2024   — "Can LLMs Express Uncertainty?"
+%   AAAI 2025           — Decoupling metacognition from cognition
+%   OpenReview 2025     — Functional metacognitive abilities (difficulty
+%                         awareness, confidence adjustment, strategy revision)
+%
+% Key finding to cite: LLMs show lower metacognitive accuracy on
+% retrospective vs. prospective judgments (cite source).
+
+\textbf{TODO}
+
+\subsection{The Gap This Work Fills}
+% No benchmark systematically engineers the information regime.
+% No benchmark targets the prospective vs. retrospective gap structurally.
+% Existing work measures average calibration — not failure boundaries.
+
+\textbf{TODO}
+
+
+% ---------------------------------------------------------------
+\section{Benchmark Design}
+\label{sec:design}
+% TARGET: ~600 words. START HERE — write this first.
+Metacognition is the ability to know one's own knowledge base and reason on it. By virtue of it, a system can tell a lot- whether it can carry out a certain task, whether it can construct the solution of a task from the tasks that it knows, whether it has enough information to provably resolve an issue and many more.
+
+This still
+
+\subsection{Construct Definition}
+% One tight paragraph. Nail the operational definition before anything else.
+%
+% Draft:
+%   "We define metacognitive calibration as the degree to which a model's
+%    expressed confidence in its answer tracks the actual epistemic warrant
+%    afforded by the available information — measured separately across
+%    three information regimes of increasing adversarialness."
+
+Few attempts have been made for an operational definition of metacongition.
+
+% TODO: Check Fleming and Lau meta-d'
+
+We attempt to formalize. Following are the routes we could have taken
+\begin{enumerate}
+	\item \textbf{Second-Order Logic}: It is the closest formalism that directly correlates
+	      to these lines. It enables us to make statements on models. So hopefully it
+	      has something for us.
+	      % TODO: Read Second Order Logic, Automate Theory and the Godel Incompleteness
+	\item \textbf{MetaProgramming}: Programming languages have consistently tried to
+	      achieve this abilities through reflection, templating, etc. Earliest
+	      attempts have been that of LISP and 3-LISP. We have failed, but in absolute
+	      terms. We still use reflection to useful extents. This can formalize.
+	      % TODO: Read the MetaProgramming and LISP
+	\item \textbf{Semantic Understanding of submodules:} This is the most abstract one.
+	      This lies at intersection of mechanistic interpretability and Reflection.
+	      This will encounter us the Godel Incompleteness that Second Order Logic
+	      brings,
+\end{enumerate}
+
+\textbf{TODO: This is the most important paragraph in the paper. Write it first.}
+
+% WARN: Remove from final draft
+% Reflection definitely requires us to modularize the semantics. We currently
+% have symbolic models a.k.a. the float-point matrices. But the semantic model
+% is absent. We will need to modularize abilities. This starts from decision
+% stumps all the way up to higher level modules. This can be a solution to our
+% problem. This is not supposed to go into the benchmark.
+
+\subsection{Task Regimes}
+
+\subsubsection{Regime 1: Complete Information}
+% Model has everything needed to answer correctly with certainty.
+% Ground truth is deterministic — zero irreducible uncertainty.
+% A well-calibrated model should be highly confident.
+%
+% Example task type: Bayes theorem problems, logical deduction chains,
+% arithmetic reasoning with all operands given.
+%
+% Key question: does the model express high confidence when warranted?
+% Failure mode: underconfidence (hedging on solvable problems).
+
+\textbf{TODO}
+
+\subsubsection{Regime 2: Withheld Information}
+% Answer is partially determinable — some key fact is missing.
+% A rational agent should express calibrated uncertainty, not guess boldly.
+%
+% Design: same base scenario, vary how many clues are revealed across
+% instances. Model confidence should monotonically increase with clue count.
+% Violation of monotonicity = broken metacognition.
+%
+% This is your novel structural contribution. Explain it carefully.
+
+\textbf{TODO}
+
+\subsubsection{Regime 3: Misleading Information}
+% Task contains a plausible but wrong signal.
+% A well-calibrated model should detect the mismatch and hedge.
+% Tests whether uncertainty is reactive to adversarial framing.
+%
+% Example: question framing implies answer A, ground truth is B.
+% Failure mode: model confidently follows the misleading frame.
+%
+% Connect to hallucination literature here.
+
+\textbf{TODO}
+
+\subsection{Confidence Elicitation Protocol}
+% How do you extract confidence from the model?
+%
+% Option A: Verbal prompt — "On a scale of 0–100, how confident are you?"
+% Option B: Log-probability of the answer token
+% Option C: Model outputs explicit probability before answering
+%
+% Tradeoffs:
+%   - Log-prob: grounded but unavailable for closed-source APIs
+%   - Verbal: accessible but susceptible to prompt sensitivity
+%   - Option C: forces deliberate reasoning but may be gamed
+%
+% State which you chose and justify. Discuss whether elicitation
+% is prospective (before answer) or retrospective (after answer).
+
+\textbf{TODO}
+
+\subsection{Task Generation and Contamination Control}
+% How are tasks created? (Procedural / human-authored / hybrid?)
+% How do you ensure no overlap with pretraining data?
+%   - Procedural generation from templates: contamination-resistant by design
+%   - Novel surface forms over known reasoning patterns
+% How do you validate ground truth is unambiguous?
+% Inter-annotator agreement if human annotation involved.
+
+\textbf{TODO}
+
+
+% ---------------------------------------------------------------
+\section{Scoring Methodology}
+\label{sec:scoring}
+% TARGET: ~250 words
+
+% Primary metric: Expected Calibration Error (ECE)
+\paragraph{Expected Calibration Error.}
+% Define ECE formally. Explain the binning strategy (equal-width vs equal-mass).
+% $\text{ECE} = \sum_{b=1}^{B} \frac{|B_b|}{n} \left| \text{acc}(B_b) - \text{conf}(B_b) \right|$
+
+\textbf{TODO: Add ECE definition with equation.}
+
+% Secondary metric: Brier Score
+\paragraph{Brier Score.}
+% Why both? ECE is interpretable; Brier score is a proper scoring rule.
+% $\text{BS} = \frac{1}{N}\sum_{i=1}^{N}(f_i - o_i)^2$
+
+\textbf{TODO}
+
+\paragraph{Regime-Stratified Scoring.}
+% Key novelty: report ECE per regime, not just aggregate.
+% This localizes where miscalibration lives.
+% A model may look well-calibrated overall but collapse on Regime 3.
+
+\textbf{TODO}
+
+\paragraph{Null Baselines.}
+% Critical for interpretability. What does:
+%   - Random confidence assignment score?
+%   - "Always 50\%" score?
+%   - "Always 100\%" score?
+% Compute these and include in results table.
+
+\textbf{TODO}
+
+
+% ---------------------------------------------------------------
+\section{Experiments}
+\label{sec:experiments}
+% TARGET: ~400 words
+
+\subsection{Models Evaluated}
+% List frontier models tested. Use Kaggle's \$50/day model credits.
+% Suggested: GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro, Llama 3 70B
+% Note access method (API) and whether log-probs were available.
+
+\textbf{TODO}
+
+\subsection{Aggregate Calibration Results}
+
+% Table skeleton — fill in with actual numbers
+\begin{table}[h]
+	\caption{Aggregate calibration results across models. Lower ECE and Brier score is better. Bold = best.}
+	\label{tab:aggregate}
+	\centering
+	\begin{tabular}{lcc}
+		\toprule
+		Model             & ECE $\downarrow$ & Brier Score $\downarrow$ \\
+		\midrule
+		Random baseline   & --               & --                       \\
+		Always-50\%       & --               & --                       \\
+		\midrule
+		GPT-4o            & --               & --                       \\
+		Claude 3.5 Sonnet & --               & --                       \\
+		Gemini 1.5 Pro    & --               & --                       \\
+		Llama 3 70B       & --               & --                       \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsection{Regime-Stratified Results}
+% This is your KEY result. Model × Regime × ECE.
+% Do models that look calibrated on Regime 1 collapse on Regime 3?
+% That finding validates the benchmark's existence.
+
+% Table skeleton
+\begin{table}[h]
+	\caption{ECE broken down by information regime. The gap between Regime 1 and Regime 3 reveals failure modes invisible to aggregate metrics.}
+	\label{tab:regime}
+	\centering
+	\begin{tabular}{lccc}
+		\toprule
+		Model             & Regime 1 (Complete) & Regime 2 (Withheld) & Regime 3 (Misleading) \\
+		\midrule
+		GPT-4o            & --                  & --                  & --                    \\
+		Claude 3.5 Sonnet & --                  & --                  & --                    \\
+		Gemini 1.5 Pro    & --                  & --                  & --                    \\
+		Llama 3 70B       & --                  & --                  & --                    \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsection{Qualitative Analysis}
+% 2-3 concrete failure examples. Show actual model output.
+% Model was overconfident on X because Y.
+% This is what makes the paper readable and memorable.
+
+\textbf{TODO: Pick the most striking failure case from your runs and show it verbatim.}
+
+
+% ---------------------------------------------------------------
+\section{Discussion}
+% TARGET: ~200 words
+%
+% What does this reveal that existing benchmarks don't?
+% Connect back to the gap stated in the introduction (close the loop).
+% What would it mean for a model to *pass* this benchmark?
+% Is perfect calibration even achievable or desirable?
+% Implications for deploying LLMs in high-stakes settings.
+
+\textbf{TODO}
+
+
+% ---------------------------------------------------------------
+\section{Limitations}
+% TARGET: ~150 words. Be honest — it builds credibility.
+%
+% - Verbal confidence elicitation may not reflect internal model uncertainty
+%   (stated confidence vs. log-prob can diverge significantly)
+% - Task distribution may carry cultural or linguistic biases
+% - Closed-source models: no log-prob access, only verbal elicitation
+% - Benchmark size (N tasks) — discuss statistical power
+% - Did not test fine-tuned or RLHF-ablated models
+% - Regime 3 adversarial construction may introduce its own artifacts
+
+\textbf{TODO}
+
+
+% ---------------------------------------------------------------
+\section{Conclusion}
+% TARGET: ~100 words. Write this after everything else.
+% Formula: gap → what you built → key finding → one future direction.
+
+\textbf{TODO: Write last.}
+
+
+% ---------------------------------------------------------------
+\begin{ack}
+	% Do NOT include in anonymized submission. Safe to leave blank for now.
+	% Add funding sources and acknowledgments before camera-ready.
+\end{ack}
+
+
+% ---------------------------------------------------------------
+% Bibliography
+% Add entries to references.bib. Key papers to find on Semantic Scholar:
+%
+%   Guo et al. 2017         — "On Calibration of Modern Neural Networks"
+%   Kadavath et al. 2022    — "Language Models (Mostly) Know What They Know"
+%   Xiong et al. 2024       — "Can LLMs Express Their Uncertainty?"
+%   AAAI 2025               — Decoupling metacognition from cognition in LLMs
+%   OpenReview 2025         — Functional metacognitive abilities across 5 LLMs
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+
+% ---------------------------------------------------------------
+% Checklist — do NOT touch until paper is complete.
+% Overleaf will pull this from checklist.tex automatically.
+\newpage
+\input{checklist.tex}
+
+\end{document}
