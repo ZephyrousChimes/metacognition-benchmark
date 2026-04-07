@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex metacognition"] 1775365867.70329 "metacognition.aux" "metacognition.bbl" "metacognition" 1775365868.58472 0
+["bibtex metacognition"] 1775539935.79064 "metacognition.aux" "metacognition.bbl" "metacognition" 1775539937.71906 0
   "./references.bib" 1775364293.47124 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "metacognition.aux" 1775365868.3323 4361 f73312d78a2c56a9258dc78ea206b91b "pdflatex"
+  "metacognition.aux" 1775539937.19954 3320 ec661198e6f8b79ce58dbc28ad72011e "pdflatex"
   (generated)
   "metacognition.bbl"
   "metacognition.blg"
   (rewritten before read)
-["pdflatex"] 1775365867.80613 "metacognition.tex" "metacognition.pdf" "metacognition" 1775365868.58497 0
+["pdflatex"] 1775539936.0036 "metacognition.tex" "metacognition.pdf" "metacognition" 1775539937.7195 0
   "/etc/texmf/web2c/texmf.cnf" 1772423727.3904 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -25,6 +25,9 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1246382020 908 2921f8a10601f252058503cc6570e581 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1246382020 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1246382020 940 228d6584342e91276bf566bcf9716b83 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1248133631 36281 c355509802a035cadc5f15869451dcee ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb" 1136849748 44648 23115b2a545ebfe2c526c3ca99db8b95 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 811d6c62865936705a31c797a1d5dada ""
@@ -110,10 +113,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1774641187 5467255 9a64d1b40e0b893fc5588ecce9d8accf ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1774641215 3348790 57da4cdc0267ed0f2610e0db040fc4b1 ""
   "checklist.tex" 1775364293.47124 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "metacognition.aux" 1775365868.3323 4361 f73312d78a2c56a9258dc78ea206b91b "pdflatex"
-  "metacognition.bbl" 1775365867.79628 275 de5ffaf5b665b622658d80bed97ba2a5 "bibtex metacognition"
-  "metacognition.out" 1775365868.3323 3769 97a4e5cb0afcdc767953387a6841e0c9 "pdflatex"
-  "metacognition.tex" 1775365866.68424 15028 d3c4ff593c0c0202ea44d3f999a4959c ""
+  "metacognition.aux" 1775539937.19954 3320 ec661198e6f8b79ce58dbc28ad72011e "pdflatex"
+  "metacognition.bbl" 1775539935.9915 275 de5ffaf5b665b622658d80bed97ba2a5 "bibtex metacognition"
+  "metacognition.out" 1775539937.19954 3872 47df8b148f9272b2211b8e215d31db9c "pdflatex"
+  "metacognition.tex" 1775539933.07139 17124 f866eeace49a30b83d79b87d0775bdb9 ""
   "neurips_2026.sty" 1775364273.1062 13462 818d80447f57703e59b8270885421e82 ""
   (generated)
   "metacognition.aux"

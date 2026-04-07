@@ -16,12 +16,10 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 
-% ---------------------------------------------------------------
-% TODO: Replace with your actual title
-\title{Probing the Failure Boundary of Metacognitive Calibration in Large Language Models}
+\title{metacognition stuff}
 
 \author{%
-  % TODO: Fill in when de-anonymizing
+  % TODO:
   % Your Name \\
   % IIIT Bangalore \\
   % \texttt{your@email.com}
@@ -85,6 +83,15 @@
 \section{Background and Related Work}
 % TARGET: ~300 words
 
+Metacognition is the ability to know one's own knowledge base and reason on it. By virtue of it, a system can tell a lot- whether it can carry out a certain task, whether it can construct the solution of a task from the tasks that it knows, whether it has enough information to provably resolve an issue and many more.
+
+
+Few attempts have been made for an operational definition of metacognition.
+Most descriptions are behavioral.
+
+% TODO: Check Signal Detection Theory and Fleming & Lau's meta-d', could be
+% formal
+
 \subsection{Calibration in Machine Learning}
 % Guo et al. 2017 — ECE definition, temperature scaling
 % Brier score as a proper scoring rule
@@ -94,32 +101,28 @@
 
 \subsection{Metacognition in Large Language Models}
 % What has been measured so far:
-%   Kadavath et al. 2022 — "Know What You Don't Know"
-%   Xiong et al. 2024   — "Can LLMs Express Uncertainty?"
-%   AAAI 2025           — Decoupling metacognition from cognition
-%   OpenReview 2025     — Functional metacognitive abilities (difficulty
+% TODO:  Kadavath et al. 2022 — "Know What You Don't Know"
+% TODO:  Xiong et al. 2024   — "Can LLMs Express Uncertainty?"
+% TODO:  AAAI 2025           — Decoupling metacognition from cognition
+% TODO:  OpenReview 2025     — Functional metacognitive abilities (difficulty
 %                         awareness, confidence adjustment, strategy revision)
 %
 % Key finding to cite: LLMs show lower metacognitive accuracy on
 % retrospective vs. prospective judgments (cite source).
 
-\textbf{TODO}
+\textbf{TODO:} Kadavath et al. 2022 	- "Know What You Don't Know"
+\textbf{TODO:} OpenReview 2025 		- Functional metacognitive abilities
 
 \subsection{The Gap This Work Fills}
 % No benchmark systematically engineers the information regime.
 % No benchmark targets the prospective vs. retrospective gap structurally.
 % Existing work measures average calibration — not failure boundaries.
 
-\textbf{TODO}
-
 
 % ---------------------------------------------------------------
 \section{Benchmark Design}
 \label{sec:design}
 % TARGET: ~600 words. START HERE — write this first.
-Metacognition is the ability to know one's own knowledge base and reason on it. By virtue of it, a system can tell a lot- whether it can carry out a certain task, whether it can construct the solution of a task from the tasks that it knows, whether it has enough information to provably resolve an issue and many more.
-
-This still
 
 \subsection{Construct Definition}
 % One tight paragraph. Nail the operational definition before anything else.
@@ -130,7 +133,6 @@ This still
 %    afforded by the available information — measured separately across
 %    three information regimes of increasing adversarialness."
 
-Few attempts have been made for an operational definition of metacongition.
 
 % TODO: Check Fleming and Lau meta-d'
 
@@ -149,9 +151,21 @@ We attempt to formalize. Following are the routes we could have taken
 	      This lies at intersection of mechanistic interpretability and Reflection.
 	      This will encounter us the Godel Incompleteness that Second Order Logic
 	      brings,
+
+	\item \textbf{Type Theory:} Query levels can tower. Query levels can
+	      interject across. The model must be able to handle it. In fact
+	      it certainly has to use the lower query levels to be able to
+	      describe what is happening in higher query levels. We cannot
+	      teach all levels.
 \end{enumerate}
 
-\textbf{TODO: This is the most important paragraph in the paper. Write it first.}
+% NOTE: Hypothesis: Maybe a typed model is metacognitive. This 
+
+% HACK: Change domain. Use the prior domain's knowledge to frame queries for the
+% new domain. Make new experiences, and make it answer the novelty. 
+% HACK: Make it seek the gaps.
+
+% \textbf{TODO: This is the most important paragraph in the paper. Write it first.}
 
 % WARN: Remove from final draft
 % Reflection definitely requires us to modularize the semantics. We currently
@@ -160,7 +174,51 @@ We attempt to formalize. Following are the routes we could have taken
 % stumps all the way up to higher level modules. This can be a solution to our
 % problem. This is not supposed to go into the benchmark.
 
+\subsection{*Reflection Interpretation}
+
+\textbf{Note:} Early attempt at formalization. Verify it well.
+
+This interpretation assumes that a model $M$ is trained for a certain task.
+The model has never been given the information about what it has been trained
+for. Does the model, reflectively realize, what it can do?
+
+A task $T: \mathcal{D} \rightarrow \mathcal{R}$ is defined as a mapping from a
+domain of inputs to a range of outputs. The model $M$ arrived at through any.
+
+We will consider a binary decision task. The results can be extended to
+functional tasks. \textbf{Check, TCS does it with Functional P algorithms. See
+	why it can do that}
+
+Any decision task can be represented as a first-order logic problem.
+
+We can consider the model to be an ensemble of solutions to tasks.
+
+\[
+	T_b
+\]
+
+$$$$
+
+
 \subsection{Task Regimes}
+
+% WARN: Subject to change
+
+\subsubsection{Reasoning over abilities}
+If I train a model for a few tasks, can I start asking questions like
+
+- Given your abilities, which take you the most time to solve. The model cannot
+fake this by simulating all possible work
+
+- Given your abilities, what more abilities you can train yourself on.
+
+- Given your abilities, where do you find "axiomatic" gaps in. (Toughest genre)
+
+\subsubsection{Easier: Reflection}
+Model pretrained on science, is suddenly introduced to lore of Harry Potter.
+
+- Where do you find inconsistencies in your knowledge base. The model has to
+reason over its knowledge spaces.
 
 \subsubsection{Regime 1: Complete Information}
 % Model has everything needed to answer correctly with certainty.
@@ -173,7 +231,6 @@ We attempt to formalize. Following are the routes we could have taken
 % Key question: does the model express high confidence when warranted?
 % Failure mode: underconfidence (hedging on solvable problems).
 
-\textbf{TODO}
 
 \subsubsection{Regime 2: Withheld Information}
 % Answer is partially determinable — some key fact is missing.
@@ -199,7 +256,7 @@ We attempt to formalize. Following are the routes we could have taken
 
 \textbf{TODO}
 
-\subsection{Confidence Elicitation Protocol}
+\subsection{Confidence Elicitation}
 % How do you extract confidence from the model?
 %
 % Option A: Verbal prompt — "On a scale of 0–100, how confident are you?"
@@ -232,37 +289,37 @@ We attempt to formalize. Following are the routes we could have taken
 \label{sec:scoring}
 % TARGET: ~250 words
 
-% Primary metric: Expected Calibration Error (ECE)
-\paragraph{Expected Calibration Error.}
-% Define ECE formally. Explain the binning strategy (equal-width vs equal-mass).
-% $\text{ECE} = \sum_{b=1}^{B} \frac{|B_b|}{n} \left| \text{acc}(B_b) - \text{conf}(B_b) \right|$
-
-\textbf{TODO: Add ECE definition with equation.}
-
-% Secondary metric: Brier Score
-\paragraph{Brier Score.}
-% Why both? ECE is interpretable; Brier score is a proper scoring rule.
-% $\text{BS} = \frac{1}{N}\sum_{i=1}^{N}(f_i - o_i)^2$
-
-\textbf{TODO}
-
-\paragraph{Regime-Stratified Scoring.}
-% Key novelty: report ECE per regime, not just aggregate.
-% This localizes where miscalibration lives.
-% A model may look well-calibrated overall but collapse on Regime 3.
-
-\textbf{TODO}
-
-\paragraph{Null Baselines.}
-% Critical for interpretability. What does:
-%   - Random confidence assignment score?
-%   - "Always 50\%" score?
-%   - "Always 100\%" score?
-% Compute these and include in results table.
-
-\textbf{TODO}
-
-
+%% Primary metric: Expected Calibration Error (ECE)
+%\paragraph{Expected Calibration Error.}
+%% Define ECE formally. Explain the binning strategy (equal-width vs equal-mass).
+%% $\text{ECE} = \sum_{b=1}^{B} \frac{|B_b|}{n} \left| \text{acc}(B_b) - \text{conf}(B_b) \right|$
+%
+%\textbf{TODO: Add ECE definition with equation.}
+%
+%% Secondary metric: Brier Score
+%\paragraph{Brier Score.}
+%% Why both? ECE is interpretable; Brier score is a proper scoring rule.
+%% $\text{BS} = \frac{1}{N}\sum_{i=1}^{N}(f_i - o_i)^2$
+%
+%\textbf{TODO}
+%
+%\paragraph{Regime-Stratified Scoring.}
+%% Key novelty: report ECE per regime, not just aggregate.
+%% This localizes where miscalibration lives.
+%% A model may look well-calibrated overall but collapse on Regime 3.
+%
+%\textbf{TODO}
+%
+%\paragraph{Null Baselines.}
+%% Critical for interpretability. What does:
+%%   - Random confidence assignment score?
+%%   - "Always 50\%" score?
+%%   - "Always 100\%" score?
+%% Compute these and include in results table.
+%
+%\textbf{TODO}
+%
+%
 % ---------------------------------------------------------------
 \section{Experiments}
 \label{sec:experiments}
@@ -274,50 +331,51 @@ We attempt to formalize. Following are the routes we could have taken
 % Note access method (API) and whether log-probs were available.
 
 \textbf{TODO}
-
-\subsection{Aggregate Calibration Results}
-
-% Table skeleton — fill in with actual numbers
-\begin{table}[h]
-	\caption{Aggregate calibration results across models. Lower ECE and Brier score is better. Bold = best.}
-	\label{tab:aggregate}
-	\centering
-	\begin{tabular}{lcc}
-		\toprule
-		Model             & ECE $\downarrow$ & Brier Score $\downarrow$ \\
-		\midrule
-		Random baseline   & --               & --                       \\
-		Always-50\%       & --               & --                       \\
-		\midrule
-		GPT-4o            & --               & --                       \\
-		Claude 3.5 Sonnet & --               & --                       \\
-		Gemini 1.5 Pro    & --               & --                       \\
-		Llama 3 70B       & --               & --                       \\
-		\bottomrule
-	\end{tabular}
-\end{table}
-
-\subsection{Regime-Stratified Results}
-% This is your KEY result. Model × Regime × ECE.
-% Do models that look calibrated on Regime 1 collapse on Regime 3?
-% That finding validates the benchmark's existence.
-
-% Table skeleton
-\begin{table}[h]
-	\caption{ECE broken down by information regime. The gap between Regime 1 and Regime 3 reveals failure modes invisible to aggregate metrics.}
-	\label{tab:regime}
-	\centering
-	\begin{tabular}{lccc}
-		\toprule
-		Model             & Regime 1 (Complete) & Regime 2 (Withheld) & Regime 3 (Misleading) \\
-		\midrule
-		GPT-4o            & --                  & --                  & --                    \\
-		Claude 3.5 Sonnet & --                  & --                  & --                    \\
-		Gemini 1.5 Pro    & --                  & --                  & --                    \\
-		Llama 3 70B       & --                  & --                  & --                    \\
-		\bottomrule
-	\end{tabular}
-\end{table}
+%
+%\subsection{Aggregate Calibration Results}
+%
+%% Table skeleton — fill in with actual numbers
+%\begin{table}[h]
+%	\caption{Aggregate calibration results across models. Lower ECE and Brier score is better. Bold = best.}
+%	\label{tab:aggregate}
+%	\centering
+%	\begin{tabular}{lcc}
+%		\toprule
+%		Model             & ECE $\downarrow$ & Brier Score $\downarrow$ \\
+%		\midrule
+%		Random baseline   & --               & --                       \\
+%		Always-50\%       & --               & --                       \\
+%		\midrule
+%		GPT-4o            & --               & --                       \\
+%		Claude 3.5 Sonnet & --               & --                       \\
+%		Gemini 1.5 Pro    & --               & --                       \\
+%		Llama 3 70B       & --               & --                       \\
+%		\bottomrule
+%	\end{tabular}
+%\end{table}
+%
+%\subsection{Regime-Stratified Results}
+%% This is your KEY result. Model × Regime × ECE.
+%% Do models that look calibrated on Regime 1 collapse on Regime 3?
+%% That finding validates the benchmark's existence.
+%
+%% Table skeleton
+%\begin{table}[h]
+%	\caption{ECE broken down by information regime. The gap between Regime 1 and Regime 3 reveals failure modes invisible to aggregate metrics.}
+%	\label{tab:regime}
+%	\centering
+%	\begin{tabular}{lccc}
+%		\toprule
+%		Model             & Regime 1 (Complete) & Regime 2 (Withheld) & Regime 3 (Misleading) \\
+%		\midrule
+%		GPT-4o            & --                  & --                  & --                    \\
+%		Claude 3.5 Sonnet & --                  & --                  & --                    \\
+%		Gemini 1.5 Pro    & --                  & --                  & --                    \\
+%		Llama 3 70B       & --                  & --                  & --                    \\
+%		\bottomrule
+%	\end{tabular}
+%\end{table}
+%*/
 
 \subsection{Qualitative Analysis}
 % 2-3 concrete failure examples. Show actual model output.
