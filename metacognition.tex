@@ -16,10 +16,12 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 
-\title{metacognition stuff}
+% ---------------------------------------------------------------
+% TODO: Replace with your actual title
+\title{Probing the Failure Boundary of Metacognitive Calibration in Large Language Models}
 
 \author{%
-  % TODO:
+  % TODO: Fill in when de-anonymizing
   % Your Name \\
   % IIIT Bangalore \\
   % \texttt{your@email.com}
@@ -83,15 +85,6 @@
 \section{Background and Related Work}
 % TARGET: ~300 words
 
-Metacognition is the ability to know one's own knowledge base and reason on it. By virtue of it, a system can tell a lot- whether it can carry out a certain task, whether it can construct the solution of a task from the tasks that it knows, whether it has enough information to provably resolve an issue and many more.
-
-
-Few attempts have been made for an operational definition of metacognition.
-Most descriptions are behavioral.
-
-% TODO: Check Signal Detection Theory and Fleming & Lau's meta-d', could be
-% formal
-
 \subsection{Calibration in Machine Learning}
 % Guo et al. 2017 — ECE definition, temperature scaling
 % Brier score as a proper scoring rule
@@ -101,28 +94,32 @@ Most descriptions are behavioral.
 
 \subsection{Metacognition in Large Language Models}
 % What has been measured so far:
-% TODO:  Kadavath et al. 2022 — "Know What You Don't Know"
-% TODO:  Xiong et al. 2024   — "Can LLMs Express Uncertainty?"
-% TODO:  AAAI 2025           — Decoupling metacognition from cognition
-% TODO:  OpenReview 2025     — Functional metacognitive abilities (difficulty
+%   Kadavath et al. 2022 — "Know What You Don't Know"
+%   Xiong et al. 2024   — "Can LLMs Express Uncertainty?"
+%   AAAI 2025           — Decoupling metacognition from cognition
+%   OpenReview 2025     — Functional metacognitive abilities (difficulty
 %                         awareness, confidence adjustment, strategy revision)
 %
 % Key finding to cite: LLMs show lower metacognitive accuracy on
 % retrospective vs. prospective judgments (cite source).
 
-\textbf{TODO:} Kadavath et al. 2022 	- "Know What You Don't Know"
-\textbf{TODO:} OpenReview 2025 		- Functional metacognitive abilities
+\textbf{TODO}
 
 \subsection{The Gap This Work Fills}
 % No benchmark systematically engineers the information regime.
 % No benchmark targets the prospective vs. retrospective gap structurally.
 % Existing work measures average calibration — not failure boundaries.
 
+\textbf{TODO}
+
 
 % ---------------------------------------------------------------
 \section{Benchmark Design}
 \label{sec:design}
 % TARGET: ~600 words. START HERE — write this first.
+Metacognition is the ability to know one's own knowledge base and reason on it. By virtue of it, a system can tell a lot- whether it can carry out a certain task, whether it can construct the solution of a task from the tasks that it knows, whether it has enough information to provably resolve an issue and many more.
+
+This still
 
 \subsection{Construct Definition}
 % One tight paragraph. Nail the operational definition before anything else.
@@ -133,8 +130,14 @@ Most descriptions are behavioral.
 %    afforded by the available information — measured separately across
 %    three information regimes of increasing adversarialness."
 
+Few attempts have been made for an operational definition of metacognition.
+Most descriptions are behavioral.
 
 % TODO: Check Fleming and Lau meta-d'
+
+In Fleming and Lau, they introduce a metric meta-d', an SDT based treatment of
+actual human metacognitive experiment. This gives us a possible measure of the
+dataset terms.
 
 We attempt to formalize. Following are the routes we could have taken
 \begin{enumerate}
@@ -159,13 +162,18 @@ We attempt to formalize. Following are the routes we could have taken
 	      teach all levels.
 \end{enumerate}
 
+\subsubsection{Type Theory}
+This looks promising. Every description of behaviour of metacognition can shown
+to be close to type theoretic towers. The implementation of a model for this
+however might require something of a fusion of point 3 and 4.
+
 % NOTE: Hypothesis: Maybe a typed model is metacognitive. This 
 
 % HACK: Change domain. Use the prior domain's knowledge to frame queries for the
 % new domain. Make new experiences, and make it answer the novelty. 
 % HACK: Make it seek the gaps.
 
-% \textbf{TODO: This is the most important paragraph in the paper. Write it first.}
+\textbf{TODO: This is the most important paragraph in the paper. Write it first.}
 
 % WARN: Remove from final draft
 % Reflection definitely requires us to modularize the semantics. We currently
@@ -174,11 +182,45 @@ We attempt to formalize. Following are the routes we could have taken
 % stumps all the way up to higher level modules. This can be a solution to our
 % problem. This is not supposed to go into the benchmark.
 
-\subsection{*Reflection Interpretation}
-
-\textbf{Note:} Early attempt at formalization. Verify it well.
-
+\subsection{Reflection Interpretation}
 This interpretation assumes that a model $M$ is trained for a certain task.
+The model has never been given the information about what it has been trained
+for. Does the model, reflectively realize, what it can do?
+
+A task $T: \mathcal{D} \rightarrow \mathcal{R}$ is defined as a mapping from a
+domain of inputs to a range of outputs. The model $M$ arrived at through any.
+
+We will consider a binary decision task. The results can be extended to
+functional tasks.
+
+Any decision task can be represented as a first-order logic problem.
+
+\[
+	T_b \coloneqq
+\]
+
+$$$$
+
+
+\subsection{Task Regimes}
+
+\subsubsection{Regime 1: Complete Information}
+% Model has everything needed to answer correctly with certainty.
+% Ground truth is deterministic — zero irreducible uncertainty.
+% A well-calibrated model should be highly confident.
+%
+% Example task type: Bayes theorem problems, logical deduction chains,
+% arithmetic reasoning with all operands given.
+%
+% Key question: does the model express high confidence when warranted?
+% Failure mode: underconfidence (hedging on solvable problems).
+
+\textbf{TODO}
+
+\subsubsection{Regime 2: Withheld Information}
+% Answer is partially determinable — some key fact is missing.
+% A rational agent should express calibrated uncertainty, not guess boldly.
+%
 The model has never been given the information about what it has been trained
 for. Does the model, reflectively realize, what it can do?
 
@@ -378,64 +420,6 @@ reason over its knowledge spaces.
 %*/
 
 \subsection{Qualitative Analysis}
-% 2-3 concrete failure examples. Show actual model output.
-% Model was overconfident on X because Y.
-% This is what makes the paper readable and memorable.
-
-\textbf{TODO: Pick the most striking failure case from your runs and show it verbatim.}
-
-
-% ---------------------------------------------------------------
-\section{Discussion}
-% TARGET: ~200 words
-%
-% What does this reveal that existing benchmarks don't?
-% Connect back to the gap stated in the introduction (close the loop).
-% What would it mean for a model to *pass* this benchmark?
-% Is perfect calibration even achievable or desirable?
-% Implications for deploying LLMs in high-stakes settings.
-
-\textbf{TODO}
-
-
-% ---------------------------------------------------------------
-\section{Limitations}
-% TARGET: ~150 words. Be honest — it builds credibility.
-%
-% - Verbal confidence elicitation may not reflect internal model uncertainty
-%   (stated confidence vs. log-prob can diverge significantly)
-% - Task distribution may carry cultural or linguistic biases
-% - Closed-source models: no log-prob access, only verbal elicitation
-% - Benchmark size (N tasks) — discuss statistical power
-% - Did not test fine-tuned or RLHF-ablated models
-% - Regime 3 adversarial construction may introduce its own artifacts
-
-\textbf{TODO}
-
-
-% ---------------------------------------------------------------
-\section{Conclusion}
-% TARGET: ~100 words. Write this after everything else.
-% Formula: gap → what you built → key finding → one future direction.
-
-\textbf{TODO: Write last.}
-
-
-% ---------------------------------------------------------------
-\begin{ack}
-	% Do NOT include in anonymized submission. Safe to leave blank for now.
-	% Add funding sources and acknowledgments before camera-ready.
-\end{ack}
-
-
-% ---------------------------------------------------------------
-% Bibliography
-% Add entries to references.bib. Key papers to find on Semantic Scholar:
-%
-%   Guo et al. 2017         — "On Calibration of Modern Neural Networks"
-%   Kadavath et al. 2022    — "Language Models (Mostly) Know What They Know"
-%   Xiong et al. 2024       — "Can LLMs Express Their Uncertainty?"
-%   AAAI 2025               — Decoupling metacognition from cognition in LLMs
 %   OpenReview 2025         — Functional metacognitive abilities across 5 LLMs
 
 \bibliographystyle{plainnat}
