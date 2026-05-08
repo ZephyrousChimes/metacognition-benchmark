@@ -135,10 +135,6 @@ Most descriptions are behavioral.
 
 % TODO: Check Fleming and Lau meta-d'
 
-In Fleming and Lau, they introduce a metric meta-d', an SDT based treatment of
-actual human metacognitive experiment. This gives us a possible measure of the
-dataset terms.
-
 We attempt to formalize. Following are the routes we could have taken
 \begin{enumerate}
 	\item \textbf{Second-Order Logic}: It is the closest formalism that directly correlates
@@ -162,11 +158,6 @@ We attempt to formalize. Following are the routes we could have taken
 	      teach all levels.
 \end{enumerate}
 
-\subsubsection{Type Theory}
-This looks promising. Every description of behaviour of metacognition can shown
-to be close to type theoretic towers. The implementation of a model for this
-however might require something of a fusion of point 3 and 4.
-
 % NOTE: Hypothesis: Maybe a typed model is metacognitive. This 
 
 % HACK: Change domain. Use the prior domain's knowledge to frame queries for the
@@ -179,6 +170,110 @@ however might require something of a fusion of point 3 and 4.
 % Reflection definitely requires us to modularize the semantics. We currently
 % have symbolic models a.k.a. the float-point matrices. But the semantic model
 % is absent. We will need to modularize abilities. This starts from decision
+% stumps all the way up to higher level modules. This can be a solution to our
+% problem. This is not supposed to go into the benchmark.
+
+\subsection{Reflection Interpretation}
+This interpretation assumes that a model $M$ is trained for a certain task.
+The model has never been given the information about what it has been trained
+for. Does the model, reflectively realize, what it can do?
+
+A task $T: \mathcal{D} \rightarrow \mathcal{R}$ is defined as a mapping from a
+domain of inputs to a range of outputs. The model $M$ arrived at through any.
+
+We will consider a binary decision task. The results can be extended to
+functional tasks.
+
+Any decision task can be represented as a first-order logic problem.
+
+\[
+	T_b \coloneqq
+\]
+
+$$$$
+
+
+
+
+\subsection{Typed Networks, LLM regionality, Anthropic's Mechanistic
+	Interpretability and Neurological Correlation}
+
+\subsubsection{Typed Networks}
+We need a network with two properties-
+
+1) It switches unnecessary neurons that it does not need to solve the problem.
+It has a certain affliction to reducing "power consumption" through the neurons.
+
+2) Given an active region under training, being able to distinguish that the new
+training input is giving a higher loss because
+\begin{enumerate}
+	\item the active weights are miscalibrated for the problem type
+	\item the input is from a different problem type
+\end{enumerate}
+
+In the second case, we would like the network to start awakening another section
+of learning for the new class.
+
+\subsubsection{LLM Regionality}
+
+When LLMs are asked a Physics vis-a-vis Chemistry problem, different weights
+come into play. The issue is that they are a mush.
+
+This reflects our requirements above.
+The only issue is that this is a post-hoc exploration, but not an in training
+feature.
+
+\subsubsection{Anthropic Mechanistic Interpretability}
+
+Anthropic just worked on training another claude model to take the internal
+weights of existing model to figure out the thinking.
+All this work comes under mechanistic interpretability.
+
+% TODO: Read the paper on NL Autoencoders for Interpretations of weight
+% activations
+\url{https://transformer-circuits.pub/2026/nla/index.html}
+
+% TODO: Read 200 open problems in Mechanistic Interpretability by Neel Nanda
+
+
+\subsubsection{Neurological Correlations}
+
+The paper by NeuroAI establishes there is a linear relationship between the
+voxel fMRI activations in brain and the weight activations of the LLM networks.
+This hints not only to closeness to brain processing for LLMs, but also the fact
+that knowledge may inherently be typed. We need to harness it.
+
+
+
+
+\subsection{The Backtracked Propostional Learner}
+Work like Prolog. We always do. We just need to find the Knowledge Base.
+
+Question is, do we backtrack in existing networks?
+
+
+
+
+
+\subsection{Task Regimes}
+
+\subsubsection{Regime 1: Complete Information}
+% Model has everything needed to answer correctly with certainty.
+% Ground truth is deterministic — zero irreducible uncertainty.
+% A well-calibrated model should be highly confident.
+%
+% Example task type: Bayes theorem problems, logical deduction chains,
+% arithmetic reasoning with all operands given.
+%
+% Key question: does the model express high confidence when warranted?
+% Failure mode: underconfidence (hedging on solvable problems).
+
+\textbf{TODO}
+
+\subsubsection{Regime 2: Withheld Information}
+% Answer is partially determinable — some key fact is missing.
+% A rational agent should express calibrated uncertainty, not guess boldly.
+%
 % stumps all the way up to higher level modules. This can be a solution to our
 % problem. This is not supposed to go into the benchmark.
 
@@ -378,48 +473,6 @@ reason over its knowledge spaces.
 %
 %% Table skeleton — fill in with actual numbers
 %\begin{table}[h]
-%	\caption{Aggregate calibration results across models. Lower ECE and Brier score is better. Bold = best.}
-%	\label{tab:aggregate}
-%	\centering
-%	\begin{tabular}{lcc}
-%		\toprule
-%		Model             & ECE $\downarrow$ & Brier Score $\downarrow$ \\
-%		\midrule
-%		Random baseline   & --               & --                       \\
-%		Always-50\%       & --               & --                       \\
-%		\midrule
-%		GPT-4o            & --               & --                       \\
-%		Claude 3.5 Sonnet & --               & --                       \\
-%		Gemini 1.5 Pro    & --               & --                       \\
-%		Llama 3 70B       & --               & --                       \\
-%		\bottomrule
-%	\end{tabular}
-%\end{table}
-%
-%\subsection{Regime-Stratified Results}
-%% This is your KEY result. Model × Regime × ECE.
-%% Do models that look calibrated on Regime 1 collapse on Regime 3?
-%% That finding validates the benchmark's existence.
-%
-%% Table skeleton
-%\begin{table}[h]
-%	\caption{ECE broken down by information regime. The gap between Regime 1 and Regime 3 reveals failure modes invisible to aggregate metrics.}
-%	\label{tab:regime}
-%	\centering
-%	\begin{tabular}{lccc}
-%		\toprule
-%		Model             & Regime 1 (Complete) & Regime 2 (Withheld) & Regime 3 (Misleading) \\
-%		\midrule
-%		GPT-4o            & --                  & --                  & --                    \\
-%		Claude 3.5 Sonnet & --                  & --                  & --                    \\
-%		Gemini 1.5 Pro    & --                  & --                  & --                    \\
-%		Llama 3 70B       & --                  & --                  & --                    \\
-%		\bottomrule
-%	\end{tabular}
-%\end{table}
-%*/
-
-\subsection{Qualitative Analysis}
 %   OpenReview 2025         — Functional metacognitive abilities across 5 LLMs
 
 \bibliographystyle{plainnat}
